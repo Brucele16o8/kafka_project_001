@@ -145,7 +145,7 @@ services:
                       secret: "${AKHQ_JWT_SECRET:-local-dev-jwt-secret-change-me-0123456789abcdef}"
 
   mongo:
-    image: mongo:8.0
+    image: mongo:7.0.41
     networks: [streaming-network]
     hostname: mongo
     container_name: mongo-local
