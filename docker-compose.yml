@@ -1,0 +1,16 @@
+services:
+  kafka:
+    image: confluentinc/cp-kafka:8.3.1
+
+    hostname: kafka
+
+    ports:
+      - "9092:9092"
+
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLE: broker, controller
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: >
+        INTERNAL:PLAINTEXT,
+        EXTERNAL:PLAINTEXT
+        

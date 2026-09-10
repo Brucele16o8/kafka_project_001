@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kafka-relay-mongo"
+version = "1.0.0"
+description = "Relay records from a provided Kafka cluster into a local Kafka cluster and persist them to MongoDB."
+requires-python = ">=3.11"
+dependencies = [
+  "confluent-kafka==2.15.0",
+  "pymongo==4.18.0",
+  "python-dotenv>=1.0,<2",
+]
+
+[project.scripts]
+kafka-create-topics = "kafka_relay_mongo.create_topics:main"
+kafka-source-inspect = "kafka_relay_mongo.inspect_source:main"
+kafka-relay = "kafka_relay_mongo.relay:main"
+kafka-mongo-sink = "kafka_relay_mongo.sink:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
